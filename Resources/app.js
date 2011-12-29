@@ -1,64 +1,91 @@
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Titanium.UI.setBackgroundColor('#000');
 
-// create tab group
-var tabGroup = Titanium.UI.createTabGroup();
 
-
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
-    backgroundColor:'#fff'
-});
-var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_views.png',
-    title:'Tab 1',
-    window:win1
+var win = Titanium.UI.createWindow({  
+    title:'Team task manager',
+    backgroundColor:'000'
 });
 
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 1',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
+var mainScreen = Ti.UI.createView({
+  layout: "portrait",
+  height: "100%",
+  width: "100%",
+  backgroundColor : "#000",
+  color: "#fff",
 });
 
-win1.add(label1);
+var label1 = Ti.UI.createLabel({
+  text:"Welcome to TeamTaskManager",
+  top: 12,
+  width: "80%",
+  height: 25,
+  left: "10%",
+  color: '#fff',
+  textAlign: 'center',
+})
 
-//
-// create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
-    backgroundColor:'#fff'
-});
-var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
-    title:'Tab 2',
-    window:win2
-});
+var labelusername = Ti.UI.createLabel({
+  text:"Username:",
+  top: 50,
+  left: 30,
+  width: "30%",
+  height: 25,
+  color: '#fff',
+})
 
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
+var txtUsername = Ti.UI.createTextField({
+  top: 50,
+  left: 120,
+  width: "30%",
+  height: 25,
+  color: '#fff',
+  textAlign: 'center',
+})
 
-win2.add(label2);
+var labelpassword = Ti.UI.createLabel({
+  text:"Password:",
+  top: 90,
+  left: 30,
+  width: "30%",
+  height: 25,
+  color: '#fff',
+})
 
+var txtPassword = Ti.UI.createTextField({
+  top: 90,
+  left: 120,
+  width: "30%",
+  height: 25,
+  color: '#fff',
+  textAlign: 'center',
+})
 
+var btnlogin = Ti.UI.createButton({
+  title:"login",
+  top: 150,
+  width: "80%",
+  height: 40,
+  left: "10%",
+})
 
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
+btnlogin.addEventListener('click', function(e){
+  mainScreen.hide();
+  overviewScreen.show();
+})
 
+mainScreen.add(label1);
+mainScreen.add(btnlogin);
+mainScreen.add(txtPassword);
+mainScreen.add(txtUsername);
+mainScreen.add(labelpassword);
+mainScreen.add(labelusername);
 
-// open tab group
-tabGroup.open();
+win.add(mainScreen);
+
+//Including all the files
+Ti.include('overview.js');
+Ti.include('project.js');
+Ti.include('taskdetail.js');
+
+win.open();
