@@ -114,3 +114,7 @@ Logfile initialized
 [DEBUG] Device connected... (waited 0 seconds)
 [DEBUG] waited 0.031000 seconds on emulator to get ready
 [INFO] Installing application on device
+[INFO] Launching application ... Ti-TeamTask
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
+
+[INFO] Deployed Ti-TeamTask ... Application should be running.
