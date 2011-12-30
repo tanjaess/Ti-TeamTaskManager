@@ -1,14 +1,7 @@
-var overviewScreen = Ti.UI.createView({
-  layout: "portrait",
-  height: "100%",
-  width: "100%",
-  backgroundColor : "#000",
-  color: "#fff",
-  visible: "false",
-});
+Titanium.UI.currentWindow.setBackgroundColor('#000');
 
 var label1 = Ti.UI.createLabel({
-  text:"Choose a project",
+  text:"Projects overview",
   top: 20,
   width: "80%",
   height: 32,
@@ -30,8 +23,48 @@ var table = Ti.UI.createTableView({
 })
 
 table.addEventListener("click", function(e) {
-  overviewScreen.hide();
-  projectScreen.show();
+
+  var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
+  
+  var winBack = Titanium.UI.createWindow({  
+    url:'back.js',
+    backgroundColor:'000'
+  });
+
+  var winProject = Titanium.UI.createWindow({  
+    url:'project.js',
+    backgroundColor:'000'
+  });
+  
+  var winAddProject = Titanium.UI.createWindow({
+	url:'addTask.js',
+	backgroundColor:'000'
+  });
+
+  var tab1 = Titanium.UI.createTab({
+	id:'tab1',
+	title:'Project',
+	window:winProject
+  });
+
+  var tab2 = Titanium.UI.createTab({
+	id:'tab2',
+	title:'Add task',
+	window:winAddProject
+  });
+  
+  var tab3 = Titanium.UI.createTab({
+	id:'tab3',
+	title:'Overview',
+	window:winBack
+  });
+
+  tabGroup.addTab(tab1);
+  tabGroup.addTab(tab2);
+  tabGroup.addTab(tab3);
+
+  tabGroup.setActiveTab(0);
+  tabGroup.open();
 });
 
 var btnloguit = Ti.UI.createButton({
@@ -43,11 +76,13 @@ var btnloguit = Ti.UI.createButton({
 })
 
 btnloguit.addEventListener('click', function(e){
-  overviewScreen.hide();
-  mainScreen.show();
+  var winLogin = Titanium.UI.createWindow({  
+    backgroundColor:'000',
+    url:'login.js'
+  });
+  winLogin.open();
 })
 
-overviewScreen.add(label1);
-overviewScreen.add(table);
-overviewScreen.add(btnloguit);
-win.add(overviewScreen);
+Titanium.UI.currentWindow.add(label1);
+Titanium.UI.currentWindow.add(table);
+Titanium.UI.currentWindow.add(btnloguit);

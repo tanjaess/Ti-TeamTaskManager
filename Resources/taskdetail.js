@@ -1,12 +1,4 @@
-
-var detailScreen = Ti.UI.createView({
-  layout: "portrait",
-  height: "100%",
-  width: "100%",
-  backgroundColor : "#000",
-  color: "#fff",
-  visible: "false",
-});
+Titanium.UI.currentWindow.setBackgroundColor('#000');
 
 var lblName = Ti.UI.createLabel({
   text:'Task name',
@@ -60,13 +52,11 @@ var btnproject = Ti.UI.createButton({
 })
 
 btnproject.addEventListener('click', function(e){
-  detailScreen.hide();
-  projectScreen.show();
+  Titanium.UI.currentWindow.close();
 })
 
-detailScreen.add(lblName);
-detailScreen.add(lblPerson);
-detailScreen.add(lblUitleg);
-detailScreen.add(lblDeadline);
-detailScreen.add(btnproject);
-win.add(detailScreen);
+Titanium.UI.currentWindow.add(lblName);
+Titanium.UI.currentWindow.add(lblPerson);
+Titanium.UI.currentWindow.add(lblUitleg);
+Titanium.UI.currentWindow.add(lblDeadline);
+Titanium.UI.currentWindow.add(btnproject);

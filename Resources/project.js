@@ -1,30 +1,4 @@
-var projectScreen = Ti.UI.createView({
-  layout: "portrait",
-  height: "100%",
-  width: "100%",
-  backgroundColor : "#000",
-  color: "#fff",
-  visible: "false",
-});
-
-var addScreen = Ti.UI.createView({
-  layout: "portrait",
-  height: "100%",
-  width: "100%",
-  backgroundColor : "#000",
-  color: "#fff",
-  visible: "false",
-});
-
-/*var bb1 = Titanium.UI.createButtonBar({
-    labels:['Project', 'Add Task'],
-    backgroundColor:'#336699',
-    top:0,
-    height:20,
-    width:'100%'
-});*/
-
-//win.add(bb1);
+Titanium.UI.currentWindow.setBackgroundColor('#000');
 
 var label1 = Ti.UI.createLabel({
   text:"Overview of a project",
@@ -102,26 +76,17 @@ for (var i = data.length - 1; i >= 0; i--){
   datarows.push(row);
 };
 
-var btnoverview = Ti.UI.createButton({
-  title:"Back",
-  top: 20,
-  width: 50,
-  height: 32,
-  left: 3,
-})
+//Ti.include('taskdetail.js');
 
 table.addEventListener("click", function(e) {
-  projectScreen.hide();
-  detailScreen.show();
+  var winDetail = Titanium.UI.createWindow({  
+    url:'taskdetail.js',
+    backgroundColor:'000'
+  });
+  
+  winDetail.open();
 });
 
-btnoverview.addEventListener('click', function(e){
-  projectScreen.hide();
-  overviewScreen.show();
-})
-
 table.setData(datarows);
-projectScreen.add(label1);
-projectScreen.add(table);
-projectScreen.add(btnoverview);
-win.add(projectScreen);
+Titanium.UI.currentWindow.add(label1);
+Titanium.UI.currentWindow.add(table);

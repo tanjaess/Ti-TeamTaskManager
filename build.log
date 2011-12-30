@@ -6,20 +6,18 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.013000 seconds on emulator to get ready
+[DEBUG] waited 0.036000 seconds on emulator to get ready
 [DEBUG] com.teamtaskmanager.ti installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
+[TRACE] COPYING CREATED FILE: C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\Resources\back.js => C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\build\android\bin\assets\Resources\back.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\Resources\overview.js => C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\build\android\bin\assets\Resources\overview.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\Resources\project.js => C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\build\android\bin\assets\Resources\project.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [INFO] Waiting for SDCard to become available..
-[INFO] Launching application ... Ti-TeamTask
 [INFO] Re-launching application ... Ti-TeamTask
 [INFO] Launching application ... Ti-TeamTask
-[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
-
-[INFO] Deployed Ti-TeamTask ... Application should be running.
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
 Warning: Activity not started, its current task has been brought to the front
 
