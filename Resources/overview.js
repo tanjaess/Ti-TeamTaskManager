@@ -33,8 +33,10 @@ table.addEventListener("click", function(e) {
 
   var winProject = Titanium.UI.createWindow({  
     url:'project.js',
-    backgroundColor:'000'
+    backgroundColor:'000',
+    project: e.rowData.title
   });
+
   
   var winAddProject = Titanium.UI.createWindow({
 	url:'addTask.js',

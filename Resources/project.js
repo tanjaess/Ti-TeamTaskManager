@@ -1,17 +1,9 @@
 Titanium.UI.currentWindow.setBackgroundColor('#000');
 
-var label1 = Ti.UI.createLabel({
-  text:"Overview of a project",
-  top: 20,
-  width: "80%",
-  height: 32,
-  left: "10%",
-  color: '#fff',
-  textAlign: 'center',
-})
+var currentProject = Titanium.UI.currentWindow.project;
 
-var lbladdTitle = Ti.UI.createLabel({
-  text:"Add a new task",
+var label1 = Ti.UI.createLabel({
+  text: currentProject,
   top: 20,
   width: "80%",
   height: 32,
@@ -28,7 +20,7 @@ var data = [
 
 var table = Ti.UI.createTableView({
   top: 80,
-  headerTitle:"Projects"
+  headerTitle:"Projects",
 })
 
 var datarows =[];
@@ -71,6 +63,10 @@ for (var i = data.length - 1; i >= 0; i--){
   row.add(deadline);
   row.hasChild=data[i].hasChild;
   
+  row.persoon = data[i].person;
+  row.deadline = data[i].deadline;
+  row.taaknaam = data[i].taskname;
+  
   row.className = 'tasks_row';
   
   datarows.push(row);
@@ -81,7 +77,10 @@ for (var i = data.length - 1; i >= 0; i--){
 table.addEventListener("click", function(e) {
   var winDetail = Titanium.UI.createWindow({  
     url:'taskdetail.js',
-    backgroundColor:'000'
+    backgroundColor:'000',
+    person: e.rowData.persoon, 
+    taskname: e.rowData.taaknaam, 
+    deadline: e.rowData.deadline
   });
   
   winDetail.open();

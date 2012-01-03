@@ -1,7 +1,7 @@
 Titanium.UI.currentWindow.setBackgroundColor('#000');
 
 var lblName = Ti.UI.createLabel({
-  text:'Add a task!',
+  text:'Edit a task',
   top: 20,
   width: "80%",
   height: 20,
@@ -23,6 +23,7 @@ var lbltaskname = Ti.UI.createLabel({
 })
 
 var txttaskname= Ti.UI.createTextField({
+  value: Titanium.UI.currentWindow.taskname,
   top: 50,
   left: 100,
   width: "50%",
@@ -44,6 +45,7 @@ var lblpersoon = Ti.UI.createLabel({
 })
 
 var txtperson= Ti.UI.createTextField({
+  value: Titanium.UI.currentWindow.person,
   top: 80,
   left: 100,
   width: "50%",
