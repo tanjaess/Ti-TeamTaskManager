@@ -13,9 +13,9 @@ var label1 = Ti.UI.createLabel({
 })
 
 var data = [
-	{person:'Tanja', taskname:'Databank aanmaken', deadline:'15-01-2012', hasChild:true},
-	{person:'Barbara', taskname:'Layout opmaken', deadline:'12-01-2012', hasChild:true},
-	{person:'Tanja', taskname:'PHP-paginas aanmaken', deadline:'05-01-2012', hasChild:true}
+	{person:'Tanja', taskname:'Databank aanmaken', deadline:'15-01-2012', important:false, hasChild:true},
+	{person:'Barbara', taskname:'Layout opmaken', deadline:'12-01-2012', important:true, hasChild:true},
+	{person:'Tanja', taskname:'PHP-paginas aanmaken', deadline:'05-01-2012', important:false, hasChild:true}
 	];
 
 var table = Ti.UI.createTableView({
@@ -34,7 +34,7 @@ for (var i = data.length - 1; i >= 0; i--){
     width:'auto',
     textAlign:'left',
     top:1,
-    left:5,
+    left:22,
     height:17
   });  
   
@@ -44,7 +44,7 @@ for (var i = data.length - 1; i >= 0; i--){
     width:'auto',
     textAlign:'left',
     bottom:2,
-    left:5,
+    left:22,
     height:15
   }); 
   
@@ -57,7 +57,17 @@ for (var i = data.length - 1; i >= 0; i--){
     right:35,
     height:15
   }); 
-
+  
+  if (data[i].important = true) {
+  	var important = Titanium.UI.createImageView({
+  		right:2,
+  		height: 20,
+  		width: 20,
+  		url: 'images/uitroepteken.png'
+  	});
+  	row.add(important);
+  };
+  
   row.add(persoon);
   row.add(taaknaam);
   row.add(deadline);
@@ -66,6 +76,7 @@ for (var i = data.length - 1; i >= 0; i--){
   row.persoon = data[i].person;
   row.deadline = data[i].deadline;
   row.taaknaam = data[i].taskname;
+  row.important = data[i].important;
   
   row.className = 'tasks_row';
   

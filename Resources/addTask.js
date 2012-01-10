@@ -168,6 +168,13 @@ var txtuitleg= Ti.UI.createTextArea({
   textAlign: 'left',
 })
 
+var btnAdd = Ti.UI.createButton({
+  title:"Add",
+  bottom: 5,
+  width: 50,
+  height: 32,
+  right: 3,
+})
 
 Titanium.UI.currentWindow.add(lblName);
 Titanium.UI.currentWindow.add(lbltaskname);
@@ -180,3 +187,4 @@ Titanium.UI.currentWindow.add(monthpicker);
 Titanium.UI.currentWindow.add(yearpicker);
 Titanium.UI.currentWindow.add(lbluitleg);
 Titanium.UI.currentWindow.add(txtuitleg);
+Titanium.UI.currentWindow.add(btnAdd);
