@@ -1,20 +1,35 @@
 Logfile initialized
-[INFO] logfile = C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\build.log
-[DEBUG] C:\Users\Eigenaar\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py simulator Ti-TeamTask C:\Program Files (x86)\Android\android-sdk C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask com.teamtaskmanager.ti 13 HVGA
-[INFO] Building Ti-TeamTask for Android ... one moment
-[INFO] Titanium SDK version: 1.7.5 (11/02/11 17:00 ab20af7)
+[INFO] logfile = /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build.log
+[DEBUG] /Library/Application Support/Titanium/mobilesdk/osx/1.8.0.v20111008193843/android/builder.py simulator Ti-TeamTaskManager /Users/Tanja/Documents/school/3IM/MobileDev/android-sdk-mac_x86 /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager com.teamtaskmanager.ti 11 HVGA 
+[INFO] Building Ti-TeamTaskManager for Android ... one moment
+[INFO] Titanium SDK version: 1.8.0 (10/08/11 19:38 69d16dc...)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.013000 seconds on emulator to get ready
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 15 seconds)
+[DEBUG] waited 15.065709 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.teamtaskmanager.ti installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\Resources\taskdetail.js => C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\build\android\bin\assets\Resources\taskdetail.js
+[TRACE] COPYING MODIFIED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/login.js => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/login.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
+[DEBUG] found drawable-long-land-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-land-hdpi/default.png
+[DEBUG] found drawable-long-land-ldpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-land-ldpi/default.png
+[DEBUG] found drawable-long-port-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-port-hdpi/default.png
+[DEBUG] found drawable-long-port-ldpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-port-ldpi/default.png
+[DEBUG] found drawable-notlong-land-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-notlong-land-hdpi/default.png
+[DEBUG] found drawable-notlong-land-ldpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-notlong-land-ldpi/default.png
+[DEBUG] found drawable-notlong-land-mdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-notlong-land-mdpi/default.png
+[DEBUG] found drawable-notlong-port-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-notlong-port-hdpi/default.png
+[DEBUG] found drawable-notlong-port-ldpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-notlong-port-ldpi/default.png
+[DEBUG] found drawable-notlong-port-mdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-notlong-port-mdpi/default.png
 [INFO] Waiting for SDCard to become available..
-[INFO] Re-launching application ... Ti-TeamTask
-[INFO] Launching application ... Ti-TeamTask
-[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
+[INFO] Re-launching application ... Ti-TeamTaskManager
+[INFO] Launching application ... Ti-TeamTaskManager
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskmanagerActivity }
 
+[INFO] Android Emulator has exited
