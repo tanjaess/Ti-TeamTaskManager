@@ -1,28 +1,25 @@
 Titanium.UI.currentWindow.setBackgroundColor('#000');
 
-var currentProject = Titanium.UI.currentWindow.project;
+/* =======================================
+ * Data from overview.js as currentWindow
+ * ======================================= */
 
-var label1 = Ti.UI.createLabel({
-  text: currentProject,
-  top: 20,
-  width: "80%",
-  height: 32,
-  left: "10%",
-  color: '#fff',
-  textAlign: 'center',
-})
+var ProjectName = Titanium.UI.currentWindow.projecNamet;
+var projectId = Titanium.UI.currentWindow.projectId;
 
-var data = [
-	{person:'Tanja', taskname:'Databank aanmaken', deadline:'15-01-2012', important:false, hasChild:true},
-	{person:'Barbara', taskname:'Layout opmaken', deadline:'12-01-2012', important:true, hasChild:true},
-	{person:'Tanja', taskname:'PHP-paginas aanmaken', deadline:'05-01-2012', important:false, hasChild:true}
-	];
+ /* ==========================
+  * Tabel
+  * ========================== */
 
-var table = Ti.UI.createTableView({
-  top: 80,
-  headerTitle:"Projects",
-})
+var table = Ti.UI.createTableView();
 
+var imgImportant = Titanium.UI.createImageView({
+  		right: 40,
+  		height: 20,
+  		width: 20,
+  		image:"/images/uitroepteken.png"
+  	});
+/*
 var datarows =[];
 
 for (var i = data.length - 1; i >= 0; i--){
@@ -63,7 +60,7 @@ for (var i = data.length - 1; i >= 0; i--){
   		right:2,
   		height: 20,
   		width: 20,
-  		url: 'images/uitroepteken.png'
+  		url:'images/uitroepteken.png'
   	});
   	row.add(important);
   };
@@ -82,21 +79,111 @@ for (var i = data.length - 1; i >= 0; i--){
   
   datarows.push(row);
 };
-
+*/
 //Ti.include('taskdetail.js');
+
+ /* ==========================
+  * Eventlistener for table
+  * ========================== */
+
 
 table.addEventListener("click", function(e) {
   var winDetail = Titanium.UI.createWindow({  
     url:'taskdetail.js',
     backgroundColor:'000',
-    person: e.rowData.persoon, 
-    taskname: e.rowData.taaknaam, 
-    deadline: e.rowData.deadline
+    personName: e.rowData.personName, 
+    taskName: e.rowData.taskName, 
+    taskDeadline: e.rowData.taskDeadline,
+	taskId: e.rowData.taskId,
+	personId: e.rowData.personId,
+	taskContent: e.rowData.taskContent,
+	taskImportant: e.rowData.taskImportant,
+	projectId:projectId,
   });
-  
   winDetail.open();
 });
 
-table.setData(datarows);
-Titanium.UI.currentWindow.add(label1);
+ /* ==========================
+  * call to db for tasks
+  * ========================== */
+
+var tasksReq = Titanium.Network.createHTTPClient();  
+tasksReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/tasks.php?id='+projectId); 
+tasksReq.send();
+
+tasksReq.onload = function()  
+{  
+    var json = this.responseText; 
+    var response = JSON.parse(json); 
+    if (response.status == true)  
+    {  
+    	var rows = [];
+		for(var i = 0; i < response.content.length; i++)
+		{
+			var row = Titanium.UI.createTableViewRow({
+				className: 'tasksTableClass',
+				taskId:response.content[i].taskId,
+				personId: response.content[i].personId,
+				taskContent: response.content[i].taskContent,
+				taskImportant: response.content[i].taskImportant,
+				taskName: response.content[i].taskName,
+				personName: response.content[i].personName,
+				taskDeadline: response.content[i].taskDeadline,
+			});
+			
+			var lblPerson =  Titanium.UI.createLabel({
+				text:response.content[i].personName,
+			    font:{fontSize:11},
+			    width:'auto',
+			    textAlign:'left',
+			    bottom:2,
+			    left:22,
+			    height:15
+			}); 
+			
+			var lblTaskname =  Titanium.UI.createLabel({
+				text:response.content[i].taskName,
+			    font:{fontSize:13,fontWeight:'bold'},
+			    width:'auto',
+			    textAlign:'left',
+			    top:1,
+			    left:22,
+			    height:17
+			  });
+			  
+			var lblDeadline =  Titanium.UI.createLabel({
+				text:response.content[i].taskDeadline,
+			    font:{fontSize:11},
+			    width:'70%',
+			    textAlign:'right',
+			    bottom:2,
+			    right:35,
+			    height:15
+			}); 
+			
+			row.add(lblPerson);
+  			row.add(lblTaskname);
+  			row.add(lblDeadline);
+  			
+  			if(response.content[i].taskImportant==1)
+  			{
+  				row.add(imgImportant)
+  			};
+  			
+  			//row.hasChild=row[i].hasChild;
+			rows.push(row);
+		}
+		table.setData(rows);
+    }  
+    else  
+    {  
+        alert("response.content");  
+    }
+};
+
+tasksReq.onerror = function()  
+{ 
+	alert("Could not connect to server."); 
+};
+
 Titanium.UI.currentWindow.add(table);

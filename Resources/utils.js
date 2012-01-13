@@ -1,0 +1,2 @@
+var projectId;
+var projectName;

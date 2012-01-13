@@ -1,192 +1,279 @@
-Titanium.UI.currentWindow.setBackgroundColor('#000');
+var win=Titanium.UI.currentWindow
+win.setBackgroundColor('#000');
 
-var lblName = Ti.UI.createLabel({
-  text:'Edit a task',
-  top: 20,
-  width: "80%",
-  height: 20,
-  left: "10%",
-  font:{fontSize:14,fontWeight:'bold'},
-  color: '#fff',
-  textAlign: 'center',
-})
+/* =======================================
+ * Data from project.js as currentWindow
+ * ======================================= */
+
+var personName = Titanium.UI.currentWindow.personName;
+var projectId = Titanium.UI.currentWindow.projectId;
+var taskName = Titanium.UI.currentWindow.taskName;
+var taskDeadline = Titanium.UI.currentWindow.taskDeadline;
+var projectMake = Titanium.UI.currentWindow.projectMake;
+var taskId = Titanium.UI.currentWindow.taskId;
+var personId= Titanium.UI.currentWindow.personId;
+var taskContent = Titanium.UI.currentWindow.taskContent;
+var taskImportant = Titanium.UI.currentWindow.taskImportant;
+win.title="Task "+taskName;
+
+var deadline = taskDeadline.split("-");
+
+/* ======================
+ * Elements on the window
+ * ====================== */
 
 var lbltaskname = Ti.UI.createLabel({
-  text:'Taskname:',
-  top: 50,
+  text:'Task name:',
+  top: 10,
   width: "30%",
-  height: 20, 
+  height: 40, 
   left: 5,
   font:{fontSize:11},
   color: '#fff',
-  textAlign: 'left',
-})
+  textAlign: 'left'
+});
 
 var txttaskname= Ti.UI.createTextField({
-  value: Titanium.UI.currentWindow.taskname,
-  top: 50,
+	value:taskName,
+  top: 10,
   left: 100,
-  width: "50%",
+  width: "60%",
   font:{fontSize:11},
-  height: 25,
+  height: 40,
   color: '#000',
-  textAlign: 'left',
-})
-
-var lblpersoon = Ti.UI.createLabel({
-  text:'Person:',
-  top: 80,
-  width: "30%",
-  height: 20,
-  left: 5,
-  font:{fontSize:11},
-  color: '#fff',
-  textAlign: 'left',
-})
-
-var txtperson= Ti.UI.createTextField({
-  value: Titanium.UI.currentWindow.person,
-  top: 80,
-  left: 100,
-  width: "50%",
-  height: 25,
-  font:{fontSize:11},
-  color: '#000',
-  textAlign: 'left',
-})
+  textAlign: 'left'
+});
 
 var lbldeadline = Ti.UI.createLabel({
   text:'Deadline',
-  top: 110,
+  top: 100,
   width: "30%",
-  height: 20,
+  height: 40,
   left: 5,
   font:{fontSize:11},
   color: '#fff',
-  textAlign: 'left',
-})
+  textAlign: 'left'
+});
 
 var daypicker = Titanium.UI.createPicker({
   top: 140,
   width: "25%",
   left: 5,
   font:{fontSize:11},
-  color: '#fff',
+  color: '#fff'
 });
+daypicker.selectionIndicator = true;
 
 var dataday = [];
-dataday[0]=Titanium.UI.createPickerRow({title:'1'});
-dataday[1]=Titanium.UI.createPickerRow({title:'2'});
-dataday[2]=Titanium.UI.createPickerRow({title:'3'});
-dataday[3]=Titanium.UI.createPickerRow({title:'4'});
-dataday[4]=Titanium.UI.createPickerRow({title:'5'});
-dataday[5]=Titanium.UI.createPickerRow({title:'6'});
-dataday[6]=Titanium.UI.createPickerRow({title:'7'});
-dataday[7]=Titanium.UI.createPickerRow({title:'8'});
-dataday[8]=Titanium.UI.createPickerRow({title:'9'});
-dataday[9]=Titanium.UI.createPickerRow({title:'10'});
-dataday[10]=Titanium.UI.createPickerRow({title:'11'});
-dataday[11]=Titanium.UI.createPickerRow({title:'12'});
-dataday[12]=Titanium.UI.createPickerRow({title:'13'});
-dataday[13]=Titanium.UI.createPickerRow({title:'14'});
-dataday[14]=Titanium.UI.createPickerRow({title:'15'});
-dataday[15]=Titanium.UI.createPickerRow({title:'16'});
-dataday[16]=Titanium.UI.createPickerRow({title:'17'});
-dataday[17]=Titanium.UI.createPickerRow({title:'18'});
-dataday[18]=Titanium.UI.createPickerRow({title:'19'});
-dataday[19]=Titanium.UI.createPickerRow({title:'20'});
-dataday[20]=Titanium.UI.createPickerRow({title:'21'});
-dataday[21]=Titanium.UI.createPickerRow({title:'22'});
-dataday[22]=Titanium.UI.createPickerRow({title:'23'});
-dataday[24]=Titanium.UI.createPickerRow({title:'25'});
-dataday[25]=Titanium.UI.createPickerRow({title:'26'});
-dataday[26]=Titanium.UI.createPickerRow({title:'27'});
-dataday[27]=Titanium.UI.createPickerRow({title:'28'});
-dataday[28]=Titanium.UI.createPickerRow({title:'29'});
-dataday[29]=Titanium.UI.createPickerRow({title:'30'});
-dataday[30]=Titanium.UI.createPickerRow({title:'31'});
+
+for(var i=0; i<32; i++)
+{
+	dataday[i]=Titanium.UI.createPickerRow({title:i+""});
+};
 daypicker.add(dataday);
+daypicker.setSelectedRow(0,deadline[2],false);
 
 var monthpicker = Titanium.UI.createPicker({
   top: 140,
   width: "25%",
   left: 80,
   font:{fontSize:11},
-  color: '#fff',
+  color: '#fff'
 });
+monthpicker.selectionIndicator = true;
 
 var datamonth = [];
-datamonth[0]=Titanium.UI.createPickerRow({title:'1'});
-datamonth[1]=Titanium.UI.createPickerRow({title:'2'});
-datamonth[2]=Titanium.UI.createPickerRow({title:'3'});
-datamonth[3]=Titanium.UI.createPickerRow({title:'4'});
-datamonth[4]=Titanium.UI.createPickerRow({title:'5'});
-datamonth[5]=Titanium.UI.createPickerRow({title:'6'});
-datamonth[6]=Titanium.UI.createPickerRow({title:'7'});
-datamonth[7]=Titanium.UI.createPickerRow({title:'8'});
-datamonth[8]=Titanium.UI.createPickerRow({title:'9'});
-datamonth[9]=Titanium.UI.createPickerRow({title:'10'});
-datamonth[10]=Titanium.UI.createPickerRow({title:'11'});
-datamonth[11]=Titanium.UI.createPickerRow({title:'12'});
-datamonth[12]=Titanium.UI.createPickerRow({title:'13'});
+for(var i=0; i<13; i++)
+{
+	datamonth[i]=Titanium.UI.createPickerRow({title:i+""});
+};
 monthpicker.add(datamonth);
-
+monthpicker.setSelectedRow(0,deadline[1],false);
 
 var yearpicker = Titanium.UI.createPicker({
   top: 140,
   width: "33%",
   left: 152,
   font:{fontSize:11},
-  color: '#fff',
+  color: '#fff'
 });
+yearpicker.selectionIndicator = true;
 
 var datayear = [];
-datayear[0]=Titanium.UI.createPickerRow({title:'2012'});
-datayear[1]=Titanium.UI.createPickerRow({title:'2013'});
-datayear[2]=Titanium.UI.createPickerRow({title:'2014'});
-datayear[3]=Titanium.UI.createPickerRow({title:'2015'});
-datayear[4]=Titanium.UI.createPickerRow({title:'2016'});
+for(var i=0; i<6; i++)
+{
+	datayear[i]=Titanium.UI.createPickerRow({title:2011+i+""});
+};
 yearpicker.add(datayear);
+switch(deadline[0])
+{
+case "2011":
+	yearpicker.setSelectedRow(0,0,false);
+  	break;
+case "2012":
+  yearpicker.setSelectedRow(0,1,false);
+  break;
+case "2013":
+  yearpicker.setSelectedRow(0,2,false);
+  break;
+case "2014":
+  yearpicker.setSelectedRow(0,3,false);
+  break;
+case "2014":
+  yearpicker.setSelectedRow(0,4,false);
+  break;
+case "2015":
+  yearpicker.setSelectedRow(0,6,false);
+  break;
+default:
+  yearpicker.setSelectedRow(0,0,false);
+}
 
 
 var lbluitleg = Ti.UI.createLabel({
   text:'Task:',
-  top: 180,
+  top: 190,
   width: "30%",
-  height: 20,
+  height: 40,
   left: 5,
   font:{fontSize:11},
   color: '#fff',
-  textAlign: 'left',
-})
+  textAlign: 'left'
+});
 
 var txtuitleg= Ti.UI.createTextArea({
-  top: 210,
+	value: taskContent,
+  top: 240,
   left: 5,
   width: "90%",
   height: 60,
   font:{fontSize:11},
   color: '#000',
-  textAlign: 'left',
-})
+  textAlign: 'left'
+});
 
-var btnEdit = Ti.UI.createButton({
-  title:"Save",
+var lblSwitchTaskImportant = Ti.UI.createLabel({
+  text:'Is the task important?:',
+  top: 310,
+  width: "auto",
+  height: "auto",
+  left: 5,
+  font:{fontSize:11},
+  color: '#fff',
+  textAlign: 'left'
+});
+
+var switchTaskImportant = Titanium.UI.createSwitch({
+    top: 310, 
+    right: 5,
+});
+if(taskImportant==1)
+	switchTaskImportant.value=true;
+else
+	switchTaskImportant.value=false;
+
+var btnAdd = Ti.UI.createButton({
+  title:"Add",
   bottom: 5,
   width: 50,
   height: 32,
-  right: 3,
-})
+  right: 3
+});
 
-Titanium.UI.currentWindow.add(lblName);
+var btnBack = Ti.UI.createButton({
+  title:"Back",
+  bottom: 5,
+  width: "auto",
+  height: "auto",
+  left: 3
+});
+
+/* ===================
+ * save and sens
+ * =================== */
+
+// event listeners pickers
+var addTaskDeadlineDay;
+var addTaskDeadlineMonth;
+var addTaskDeadlineYear;
+var addTaskPersonId;
+var addTaskImportant;
+var addTaskName;
+var addTaskContent;
+daypicker.addEventListener('change',function(e)
+{
+	if(e.row.title<10)
+		addTaskDeadlineDay =0+e.row.title+"";
+	else
+		addTaskDeadlineDay =e.row.title+"";
+});
+monthpicker.addEventListener('change',function(e)
+{
+	if(e.row.title<10)
+		addTaskDeadlineMonth =0+e.row.title+"";
+	else
+		addTaskDeadlineMonth =e.row.title+"";
+});
+yearpicker.addEventListener('change',function(e)
+{
+	addTaskDeadlineYear =e.row.title+"";
+});
+switchTaskImportant.addEventListener('change',function(e)
+{
+	if(e.value==true)
+		addTaskImportant=1;
+	else
+		addTaskImportant=0;
+});
+// event listener to button
+btnAdd.addEventListener('click', function(e){
+	addTaskName=txttaskname.value;
+	addTaskContent=txtuitleg.value;
+	
+//alert("http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId="+projectId+"&taskName="+addTaskName+"&taskDeadline="+addTaskDeadlineYear+"-"+addTaskDeadlineMonth+"-"+addTaskDeadlineDay+"&personId="+addTaskPersonId+"&taskContent="+addTaskContent+"&taskImportant="+addTaskImportant); 
+	
+	/* ============================
+	 * Call to save task
+	 * ============================*/
+	
+	var overviewReq = Titanium.Network.createHTTPClient();  
+	overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/updateTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
+	overviewReq.send();
+	
+	overviewReq.onload = function()  
+	{  
+	    var json = this.responseText; 
+	    var response = JSON.parse(json); 
+	    if (response.status == true)  
+	    {  
+	    	alert("Task was saved.");    	
+	    }  
+	    else  
+	    {  
+	        alert("Task was not saved.");  
+	    }
+	};
+	
+	overviewReq.onerror = function()  
+	{ 
+		alert("Could not connect to server."); 
+	};
+	
+});
+
+btnAdd.addEventListener('click', function(e){
+	alert("go back");
+	});
+	
 Titanium.UI.currentWindow.add(lbltaskname);
 Titanium.UI.currentWindow.add(txttaskname);
-Titanium.UI.currentWindow.add(lblpersoon);
-Titanium.UI.currentWindow.add(txtperson);
 Titanium.UI.currentWindow.add(lbldeadline);
 Titanium.UI.currentWindow.add(daypicker);
 Titanium.UI.currentWindow.add(monthpicker);
 Titanium.UI.currentWindow.add(yearpicker);
 Titanium.UI.currentWindow.add(lbluitleg);
 Titanium.UI.currentWindow.add(txtuitleg);
-Titanium.UI.currentWindow.add(btnEdit);
+Titanium.UI.currentWindow.add(lblSwitchTaskImportant);
+Titanium.UI.currentWindow.add(switchTaskImportant);
+Titanium.UI.currentWindow.add(btnAdd);
+Titanium.UI.currentWindow.add(btnBack);
