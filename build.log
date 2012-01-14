@@ -6,7 +6,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.014239 seconds on emulator to get ready
+[DEBUG] waited 0.022779 seconds on emulator to get ready
 [DEBUG] com.teamtaskmanager.ti installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
@@ -29,3 +29,4 @@ Logfile initialized
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskmanagerActivity }
 Warning: Activity not started, its current task has been brought to the front
 
+[INFO] Android Emulator has exited

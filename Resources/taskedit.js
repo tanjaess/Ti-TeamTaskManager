@@ -172,7 +172,7 @@ if(taskImportant==1)
 else
 	switchTaskImportant.value=false;
 
-var btnAdd = Ti.UI.createButton({
+var btnUpdate = Ti.UI.createButton({
   title:"Add",
   bottom: 5,
   width: 50,
@@ -193,13 +193,12 @@ var btnBack = Ti.UI.createButton({
  * =================== */
 
 // event listeners pickers
-var addTaskDeadlineDay;
-var addTaskDeadlineMonth;
-var addTaskDeadlineYear;
-var addTaskPersonId;
-var addTaskImportant;
-var addTaskName;
-var addTaskContent;
+var addTaskDeadlineDay=deadline[2];
+var addTaskDeadlineMonth=deadline[1];
+var addTaskDeadlineYear=deadline[0];
+var addTaskImportant=taskImportant;
+var addTaskName=taskName;
+var addTaskContent=taskContent;
 daypicker.addEventListener('change',function(e)
 {
 	if(e.row.title<10)
@@ -226,18 +225,18 @@ switchTaskImportant.addEventListener('change',function(e)
 		addTaskImportant=0;
 });
 // event listener to button
-btnAdd.addEventListener('click', function(e){
+btnUpdate.addEventListener('click', function(e){
 	addTaskName=txttaskname.value;
 	addTaskContent=txtuitleg.value;
 	
-//alert("http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId="+projectId+"&taskName="+addTaskName+"&taskDeadline="+addTaskDeadlineYear+"-"+addTaskDeadlineMonth+"-"+addTaskDeadlineDay+"&personId="+addTaskPersonId+"&taskContent="+addTaskContent+"&taskImportant="+addTaskImportant); 
+	alert('http://esselenstanja2011.dreamhosters.com/mobiele/updateTask.php?taskId='+taskId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant);
 	
 	/* ============================
 	 * Call to save task
 	 * ============================*/
 	
 	var overviewReq = Titanium.Network.createHTTPClient();  
-	overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/updateTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
+	overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/updateTask.php?taskId='+taskId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
 	overviewReq.send();
 	
 	overviewReq.onload = function()  
@@ -246,11 +245,11 @@ btnAdd.addEventListener('click', function(e){
 	    var response = JSON.parse(json); 
 	    if (response.status == true)  
 	    {  
-	    	alert("Task was saved.");    	
+	    	alert("Task was updated.");    	
 	    }  
 	    else  
 	    {  
-	        alert("Task was not saved.");  
+	        alert("Task was not updated.");  
 	    }
 	};
 	
@@ -261,7 +260,7 @@ btnAdd.addEventListener('click', function(e){
 	
 });
 
-btnAdd.addEventListener('click', function(e){
+btnBack.addEventListener('click', function(e){
 	alert("go back");
 	});
 	
@@ -275,5 +274,5 @@ Titanium.UI.currentWindow.add(lbluitleg);
 Titanium.UI.currentWindow.add(txtuitleg);
 Titanium.UI.currentWindow.add(lblSwitchTaskImportant);
 Titanium.UI.currentWindow.add(switchTaskImportant);
-Titanium.UI.currentWindow.add(btnAdd);
+Titanium.UI.currentWindow.add(btnUpdate);
 Titanium.UI.currentWindow.add(btnBack);
