@@ -98,6 +98,7 @@ table.addEventListener("click", function(e) {
 	personId: e.rowData.personId,
 	taskContent: e.rowData.taskContent,
 	taskImportant: e.rowData.taskImportant,
+	taskProblem: e.rowData.taskProblem,
 	projectId:projectId,
   });
   winDetail.open();
@@ -129,6 +130,7 @@ tasksReq.onload = function()
 				taskName: response.content[i].taskName,
 				personName: response.content[i].personName,
 				taskDeadline: response.content[i].taskDeadline,
+				taskProblem: response.content[i].taskProblem,
 			});
 			
 			var lblPerson =  Titanium.UI.createLabel({

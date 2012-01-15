@@ -5,12 +5,15 @@ Logfile initialized
 [INFO] Titanium SDK version: 1.8.0 (10/08/11 19:38 69d16dc...)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.022779 seconds on emulator to get ready
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 15 seconds)
+[DEBUG] waited 15.086577 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.teamtaskmanager.ti installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/taskedit.js => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/taskedit.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-land-hdpi/default.png
@@ -27,6 +30,5 @@ Logfile initialized
 [INFO] Re-launching application ... Ti-TeamTaskManager
 [INFO] Launching application ... Ti-TeamTaskManager
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskmanagerActivity }
-Warning: Activity not started, its current task has been brought to the front
 
 [INFO] Android Emulator has exited
