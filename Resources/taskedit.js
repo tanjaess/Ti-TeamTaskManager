@@ -261,8 +261,8 @@ btnUpdate.addEventListener('click', function(e){
 });
 
 btnBack.addEventListener('click', function(e){
-	alert("go back");
-	});
+	Titanium.UI.currentWindow.close();
+});
 	
 Titanium.UI.currentWindow.add(lbltaskname);
 Titanium.UI.currentWindow.add(txttaskname);

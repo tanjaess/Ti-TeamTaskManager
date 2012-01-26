@@ -1,7 +1,11 @@
 Titanium.UI.currentWindow.setBackgroundColor('#000');
 
+var projectId = Titanium.UI.currentWindow.projectId;
+var taskName = Titanium.UI.currentWindow.taskName;
+var taskDeadline = Titanium.UI.currentWindow.taskDeadline;
+
 var lblName = Ti.UI.createLabel({
-  text:Titanium.UI.currentWindow.taskname,
+  text:taskName,
   top: 20,
   width: "70%",
   left: 55,
@@ -11,7 +15,7 @@ var lblName = Ti.UI.createLabel({
 })
 
 var lblDeadline = Ti.UI.createLabel({
-  text:'Deadline : ' + Titanium.UI.currentWindow.deadline,
+  text:'Deadline : ' + taskDeadline,
   top: 60,
   width: "80%",
   height: 20,
@@ -61,6 +65,11 @@ var btnSave = Ti.UI.createButton({
   height: 32,
   left: 3,
 })
+
+btnSave.addEventListener('click', function(e){
+  alert("Problem saved")
+})
+
 
 Titanium.UI.currentWindow.add(lblName);
 Titanium.UI.currentWindow.add(lbluitleg);
