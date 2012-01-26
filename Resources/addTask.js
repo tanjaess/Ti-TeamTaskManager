@@ -61,7 +61,7 @@ daypicker.selectionIndicator = true;
 
 var dataday = [];
 
-for(var i=0; i<32; i++)
+for(var i=1; i<32; i++)
 {
 	dataday[i]=Titanium.UI.createPickerRow({title:i+""});
 };
@@ -77,7 +77,7 @@ var monthpicker = Titanium.UI.createPicker({
 monthpicker.selectionIndicator = true;
 
 var datamonth = [];
-for(var i=0; i<13; i++)
+for(var i=1; i<13; i++)
 {
 	datamonth[i]=Titanium.UI.createPickerRow({title:i+""});
 };
@@ -95,7 +95,7 @@ yearpicker.selectionIndicator = true;
 var datayear = [];
 for(var i=0; i<6; i++)
 {
-	datayear[i]=Titanium.UI.createPickerRow({title:2011+i+""});
+	datayear[i]=Titanium.UI.createPickerRow({title:2012+i+""});
 };
 yearpicker.add(datayear);
 
@@ -170,7 +170,7 @@ peopleReq.onload = function()
 {  
     var json = this.responseText; 
     var response = JSON.parse(json); 
-    alert(json);
+    //alert(json);
     if (response.status == true)  
     {
 		for(var i = 1; i < response.content.length+1; i++)
@@ -199,24 +199,24 @@ peopleReq.onerror = function()
  * =================== */
 
 // event listeners pickers
-var addTaskDeadlineDay;
-var addTaskDeadlineMonth;
-var addTaskDeadlineYear;
-var addTaskPersonId;
-var addTaskImportant;
-var addTaskName;
-var addTaskContent;
+var addTaskDeadlineDay = "01";
+var addTaskDeadlineMonth = "01";
+var addTaskDeadlineYear = "2012";
+var addTaskPersonId="";
+var addTaskImportant=0;
+var addTaskName="";
+var addTaskContent="";
 daypicker.addEventListener('change',function(e)
 {
 	if(e.row.title<10)
-		addTaskDeadlineDay =0+e.row.title+"";
+		addTaskDeadlineDay =0+""+e.row.title;
 	else
 		addTaskDeadlineDay =e.row.title+"";
 });
 monthpicker.addEventListener('change',function(e)
 {
 	if(e.row.title<10)
-		addTaskDeadlineMonth =0+e.row.title+"";
+		addTaskDeadlineMonth =0+""+e.row.title;
 	else
 		addTaskDeadlineMonth =e.row.title+"";
 });
@@ -239,35 +239,45 @@ switchTaskImportant.addEventListener('change',function(e)
 btnAdd.addEventListener('click', function(e){
 	addTaskName=txttaskname.value;
 	addTaskContent=txtuitleg.value;
+	if(addTaskName="")
+	{
+		alert("Please fill in a task name.");
+	}
+	else if(addTaskPersonId == "")
+	{
+		alert("Please select a person.");
+	} 
+	else 
+	{
+		alert("http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId="+projectId+"&taskName="+addTaskName+"&taskDeadline="+addTaskDeadlineYear+"-"+addTaskDeadlineMonth+"-"+addTaskDeadlineDay+"&personId="+addTaskPersonId+"&taskContent="+addTaskContent+"&taskImportant="+addTaskImportant); 
+		/* ============================
+		 * Call to save task
+		 * ============================*/
+		
+		var overviewReq = Titanium.Network.createHTTPClient();  
+		overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
+		overviewReq.send();
+		
+		overviewReq.onload = function()  
+		{  
+		    var json = this.responseText; 
+		    var response = JSON.parse(json); 
+		    if (response.status == true)  
+		    {  
+		    	alert("Task was saved.");    	
+		    }  
+		    else  
+		    {  
+		        alert("Task was not saved.");  
+		    }
+			
+		};
 	
-//alert("http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId="+projectId+"&taskName="+addTaskName+"&taskDeadline="+addTaskDeadlineYear+"-"+addTaskDeadlineMonth+"-"+addTaskDeadlineDay+"&personId="+addTaskPersonId+"&taskContent="+addTaskContent+"&taskImportant="+addTaskImportant); 
-	
-	/* ============================
-	 * Call to save task
-	 * ============================*/
-	
-	var overviewReq = Titanium.Network.createHTTPClient();  
-	overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
-	overviewReq.send();
-	
-	overviewReq.onload = function()  
-	{  
-	    var json = this.responseText; 
-	    var response = JSON.parse(json); 
-	    if (response.status == true)  
-	    {  
-	    	alert("Task was saved.");    	
-	    }  
-	    else  
-	    {  
-	        alert("Task was not saved.");  
-	    }
-	};
-	
-	overviewReq.onerror = function()  
-	{ 
-		alert("Could not connect to server."); 
-	};
+		overviewReq.onerror = function()  
+		{ 
+			alert("Could not connect to server."); 
+		};
+	}
 	
 });
 

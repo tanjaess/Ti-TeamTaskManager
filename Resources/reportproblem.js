@@ -1,8 +1,10 @@
-Titanium.UI.currentWindow.setBackgroundColor('#000');
 
-var projectId = Titanium.UI.currentWindow.projectId;
+var taskId = Titanium.UI.currentWindow.taskId;
 var taskName = Titanium.UI.currentWindow.taskName;
 var taskDeadline = Titanium.UI.currentWindow.taskDeadline;
+var taskProblem = Titanium.UI.currentWindow.taskProblem;
+
+Titanium.UI.currentWindow.setBackgroundColor('#000');
 
 var lblName = Ti.UI.createLabel({
   text:taskName,
@@ -49,6 +51,7 @@ var lbluitleg = Ti.UI.createLabel({
 })
 
 var txtuitleg= Ti.UI.createTextArea({
+  value: taskProblem,	
   top: 130,
   left: 5,
   width: "90%",
@@ -67,10 +70,29 @@ var btnSave = Ti.UI.createButton({
 })
 
 btnSave.addEventListener('click', function(e){
-  alert("Problem saved")
+	var overviewReq = Titanium.Network.createHTTPClient();  
+	overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/addProblemToTask.php?taskId='+taskId+'&taskProblem='+txtuitleg.value); 
+	overviewReq.send();
+	overviewReq.onload = function()  
+	{  
+	    var json = this.responseText; 
+	    var response = JSON.parse(json); 
+	    if (response.status == true)  
+	    {  
+	    	alert("Problem was added.");    	
+	    }  
+	    else  
+	    {  
+	        alert("Problem was not added.");  
+	    }
+	};
+	
+	overviewReq.onerror = function()  
+	{ 
+		alert("Could not connect to server."); 
+	};
+	
 })
-
-
 Titanium.UI.currentWindow.add(lblName);
 Titanium.UI.currentWindow.add(lbluitleg);
 Titanium.UI.currentWindow.add(txtuitleg);
