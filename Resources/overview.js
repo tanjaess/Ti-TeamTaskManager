@@ -1,7 +1,7 @@
 var win = Titanium.UI.currentWindow;
 win.setBackgroundColor('#000');
 win.title="Team Task Manager";
-win.setBackgroundImage('images/head.png');
+win.setBackgroundImage('images/headReverse.png');
 
 /* =======================================
  * isAndroid?
@@ -143,6 +143,16 @@ overviewReq.onload = function()
 				{
 					row.setBackgroundColor('#011723');
 				}
+				var name =  Titanium.UI.createLabel({
+				text:response.content[i].name,
+				font:{fontSize:16,fontWeight:'bold'},
+				width:'auto',
+				textAlign:'left',
+				top:13,
+				left:10,
+				height:'auto',
+				color:"#fff"
+				});
 				var arrow =  Titanium.UI.createImageView({
 				url:"app://images/arrow_right.png",
 				width:30,
@@ -151,13 +161,13 @@ overviewReq.onload = function()
 				top:10
 				});
 				row.add(arrow);
+				row.add(name);
 			} 
 			else
 			{
 				row.hasChild=true;
 			}
 			rows.push(row);
-			
 		};
 		table.setData(rows);
     }  
