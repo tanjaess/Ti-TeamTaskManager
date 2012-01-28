@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Logfile initialized
 [INFO] logfile = /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build.log
 [DEBUG] /Library/Application Support/Titanium/mobilesdk/osx/1.8.0.v20111008193843/android/builder.py simulator Ti-TeamTaskManager /Users/Tanja/Documents/school/3IM/MobileDev/android-sdk-mac_x86 /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager com.teamtaskmanager.ti 11 HVGA 
@@ -7,11 +6,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.011860 seconds on emulator to get ready
+[DEBUG] waited 0.013904 seconds on emulator to get ready
 [DEBUG] com.teamtaskmanager.ti installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/login.js => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/login.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-land-hdpi/default.png
@@ -29,34 +27,3 @@ Logfile initialized
 [INFO] Launching application ... Ti-TeamTaskManager
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskmanagerActivity }
 
-=======
-Logfile initialized
-[INFO] logfile = C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask\build.log
-[DEBUG] C:\Users\Eigenaar\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py simulator Ti-TeamTask C:\Program Files (x86)\Android\android-sdk C:\Users\Eigenaar\My Documents\Titanium Studio Workspace\Ti-TeamTask com.teamtaskmanager.ti 11 HVGA
-[INFO] Building Ti-TeamTask for Android ... one moment
-[INFO] Titanium SDK version: 1.7.5 (11/02/11 17:00 ab20af7)
-[DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.019000 seconds on emulator to get ready
-[DEBUG] com.teamtaskmanager.ti installed? True
-[INFO] Fastdev server running, deploying in Fastdev mode
-[INFO] Copying project resources..
-[INFO] Tiapp.xml unchanged, skipping class generation
-[DEBUG] Processing Android resource drawables
-[INFO] Waiting for SDCard to become available..
-[INFO] Re-launching application ... Ti-TeamTask
-[INFO] Launching application ... Ti-TeamTask
-[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
-Error type 3
-Error: Activity class {com.teamtaskmanager.ti/com.teamtaskmanager.ti.TiTeamtaskActivity} does not exist.
-
-[INFO] Launching application ... Ti-TeamTask
-[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
-
-[INFO] Deployed Ti-TeamTask ... Application should be running.
-[INFO] Launching application ... Ti-TeamTask
-[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskActivity }
-
-[INFO] Deployed Ti-TeamTask ... Application should be running.
->>>>>>> 135ca0e79761665dafa8a2f8503abb183450b1da

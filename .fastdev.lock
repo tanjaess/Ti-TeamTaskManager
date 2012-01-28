@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"ip": "0.0.0.0", "app_guid": "19d3e7c8-a9dc-46a1-a66e-cfbd03b0671c", "port": 53011, "dir": "/Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager", "app_id": "com.teamtaskmanager.ti"}
-=======
-{"ip": "0.0.0.0", "app_guid": "19d3e7c8-a9dc-46a1-a66e-cfbd03b0671c", "port": 50574, "dir": "C:\\Users\\Eigenaar\\My Documents\\Titanium Studio Workspace\\Ti-TeamTask", "app_id": "com.teamtaskmanager.ti"}
->>>>>>> 135ca0e79761665dafa8a2f8503abb183450b1da
+{"ip": "0.0.0.0", "app_guid": "19d3e7c8-a9dc-46a1-a66e-cfbd03b0671c", "port": 59422, "dir": "/Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager", "app_id": "com.teamtaskmanager.ti"}

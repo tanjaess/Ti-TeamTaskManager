@@ -1,4 +1,17 @@
-Titanium.UI.currentWindow.setBackgroundColor('#000');
+var win = Titanium.UI.currentWindow;
+win.setBackgroundColor('#000');
+win.title="Team Task Manager";
+win.setBackgroundImage('images/head.png');
+
+/* =======================================
+ * isAndroid?
+ * ======================================= */
+
+var isAndroid = false;
+
+if (Ti.Platform.name == 'android') {
+	isAndroid = true;
+};
 
 /* =======================================
  * Data from overview.js as currentWindow
@@ -92,7 +105,7 @@ var btnloguit = Ti.UI.createButton({
 
 btnloguit.addEventListener('click', function(e){
   var winLogin = Titanium.UI.createWindow({  
-    backgroundColor:'000',
+    backgroundColor:'#000',
     url:'login.js'
   });
   winLogin.open();
@@ -115,13 +128,37 @@ overviewReq.onload = function()
     	var rows = [];
 		for(var i = 0; i < response.content.length; i++)
 		{
-				var row = Titanium.UI.createTableViewRow({
-					className: 'table1Class',
-					title: response.content[i].name,
-					projectId: response.content[i].id
+			var row = Titanium.UI.createTableViewRow({
+						className: 'table1Class',
+						title: response.content[i].name,
+						projectId: response.content[i].id,
+					});
+			if (isAndroid) 
+			{
+				if(i%2==0)
+				{
+					row.setBackgroundColor('#097ab5');
+				} 
+				else
+				{
+					row.setBackgroundColor('#011723');
+				}
+				var arrow =  Titanium.UI.createImageView({
+				url:"app://images/arrow_right.png",
+				width:30,
+				height:30,
+				right:4,
+				top:10
 				});
-				rows.push(row);
-		}
+				row.add(arrow);
+			} 
+			else
+			{
+				row.hasChild=true;
+			}
+			rows.push(row);
+			
+		};
 		table.setData(rows);
     }  
     else  
