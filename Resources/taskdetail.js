@@ -70,7 +70,7 @@ var lblProblem = Ti.UI.createLabel({
   left: 5,
   fontSize:11,
   color: '#fff',
-  textAlign: 'left',
+  textAlign: 'left'
 })
 
 var btnproject = Ti.UI.createButton({
@@ -88,7 +88,7 @@ btnproject.addEventListener('click', function(e){
 var btnReport = Ti.UI.createButton({
   title:"Report Problem",
   bottom: 5,
-  width: 100,
+  width: 150,
   height: 32,
   left: 3,
 })
@@ -102,6 +102,7 @@ btnReport.addEventListener('click', function(e){
     taskName: taskName, 
     taskDeadline: taskDeadline,
     taskProblem: taskProblem
+
   });
   // moet eerst gesloten worden, wanneer een probleem wordt toegevoegd 
   //en men komt terug op deze pagina, dan werkt de "back"-button niet meer
@@ -131,8 +132,8 @@ btnEdit.addEventListener('click', function(e){
 	taskImportant:taskImportant 
   });
   /*// moet eerst gesloten worden, wanneer een task wordt veranderd
-  // en men komt terug op deze pagina, dan werkt de "back"-button niet meer
-  Titanium.UI.currentWindow.close();*/
+  // en men komt terug op deze pagina, dan werkt de "back"-button niet meer*/
+  Titanium.UI.currentWindow.close();
   winEdit.open();
 })
 

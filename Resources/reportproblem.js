@@ -93,7 +93,6 @@ btnSave.addEventListener('click', function(e){
 	};
 	
 })
-
 Titanium.UI.currentWindow.add(lblName);
 Titanium.UI.currentWindow.add(lbluitleg);
 Titanium.UI.currentWindow.add(txtuitleg);

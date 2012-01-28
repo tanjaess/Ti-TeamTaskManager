@@ -36,7 +36,8 @@ var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
 
   var winBack = Titanium.UI.createWindow({  
     url:'back.js',
-    backgroundColor:'000'
+    backgroundColor:'000',
+    id: id,
   });
 
   var winProject = Titanium.UI.createWindow({  
@@ -50,6 +51,7 @@ var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
   var winAddProject = Titanium.UI.createWindow({
 	url:'addTask.js',
 	backgroundColor:'000',
+	projectId: e.rowData.projectId,
   });
 
   var tab1 = Titanium.UI.createTab({
@@ -83,7 +85,7 @@ var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
 var btnloguit = Ti.UI.createButton({
   title:"log uit",
   top: 20,
-  width: 50,
+  width: 70,
   height: 32,
   left: 3,
 });
