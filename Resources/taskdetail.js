@@ -1,4 +1,5 @@
-Titanium.UI.currentWindow.setBackgroundColor('#000');
+var win=Titanium.UI.currentWindow;
+win.setBackgroundColor('#000');
 
 /* =======================================
  * Data from project.js as currentWindow

@@ -1,4 +1,13 @@
-Titanium.UI.currentWindow.setBackgroundColor('#000');
+var win=Titanium.UI.currentWindow;
+win.setBackgroundColor('#000');
+win.backgroundImage = 'images/bg.png'; 
+win.title="TeamTaskManager";
+
+var isAndroid = false;
+
+if (Ti.Platform.name == 'android') {
+	isAndroid = true;
+}
 
 var lblWelcome = Ti.UI.createLabel({
   text:"Welcome to TeamTaskManager",
@@ -58,14 +67,30 @@ var txtPassword = Ti.UI.createTextField({
     returnKeyType:Titanium.UI.RETURNKEY_DEFAULT
 });
 
-var btnlogin = Ti.UI.createButton({
-  title:"login",
-  top: 170,
-  width: "80%",
-  height: 40,
-  left: "10%",
-  font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14}  
-})
+if (isAndroid) {
+	var btnlogin = Ti.UI.createButton({
+		backgroundColor: "#011723",
+		backgroundFocusedColor: "#011723",
+		color: "#fff",
+		borderRadius: 10,
+	  	title:"login",
+	  	top: 170,
+	  	width: "80%",
+	  	height: 40,
+	  	left: "10%",
+  		font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14}  
+	});
+} else {
+	var btnlogin = Ti.UI.createButton({
+	  	title:"login",
+	  	top: 170,
+	  	width: "80%",
+	  	height: 40,
+	  	left: "10%",
+  		font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14}  
+	});
+};
+
 
 var loginReq = Titanium.Network.createHTTPClient();  
 
@@ -75,7 +100,7 @@ loginReq.onload = function()
     var response = JSON.parse(json);  
     if (response.logged == true)  
     {  
-        alert("Welcome " + response.name + ". Your email is: " + response.email + " Your id is:" +response.id);
+        alert("You are logged in " + response.name);
         txtUsername.blur();  
         txtPassword.blur();  
         Ti.App.fireEvent('gotoOverview', {  

@@ -11,10 +11,10 @@
     <id>com.teamtaskmanager.ti</id>
     <name>Ti-TeamTaskManager</name>
     <version>1.0</version>
-    <publisher>Tanja</publisher>
+    <publisher>Tanja and Barbara</publisher>
     <url>https://github.com/tanjaess/Ti-TeamTaskManager</url>
     <description>not specified</description>
-    <copyright>2011 by Tanja</copyright>
+    <copyright>2011 by Tanja and Barbara</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>

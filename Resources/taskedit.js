@@ -1,4 +1,4 @@
-var win=Titanium.UI.currentWindow
+var win=Titanium.UI.currentWindow;
 win.setBackgroundColor('#000');
 
 /* =======================================
