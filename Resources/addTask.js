@@ -1,5 +1,6 @@
-var win=Titanium.UI.currentWindow
+var win=Titanium.UI.currentWindow;
 win.setBackgroundColor('#000');
+win.setBackgroundImage('images/headReverse.png');
 
 var projectId=1;
 
@@ -13,39 +14,40 @@ var lbltaskname = Ti.UI.createLabel({
   width: "30%",
   height: 40, 
   left: 5,
-  font:{fontSize:11},
+  font:{fontSize:16,fontWeight:'bold'},
   color: '#fff',
-  textAlign: 'left'
+  textAlign: 'left',
+  borderRadius: 10
 });
 
 var txttaskname= Ti.UI.createTextField({
-  top: 10,
+  top: 5,
   left: 100,
   width: "60%",
-  font:{fontSize:11},
-  height: 40,
+  font:{fontSize:14,fontWeight:'bold'},
+  height: "auto",
   color: '#000',
   textAlign: 'left'
 });
 
 var lblpersoon = Ti.UI.createLabel({
   text:'Person:',
-  top: 50,
+  top: 60,
   width: "30%",
   height: 40,
   left: 5,
-  font:{fontSize:11},
+  font:{fontSize:16,fontWeight:'bold'},
   color: '#fff',
   textAlign: 'left'
 });
 
 var lbldeadline = Ti.UI.createLabel({
-  text:'Deadline',
-  top: 100,
+  text:'Deadline:',
+  top: 105,
   width: "30%",
   height: 40,
   left: 5,
-  font:{fontSize:11},
+  font:{fontSize:16,fontWeight:'bold'},
   color: '#fff',
   textAlign: 'left'
 });
@@ -54,7 +56,7 @@ var daypicker = Titanium.UI.createPicker({
   top: 140,
   width: "25%",
   left: 5,
-  font:{fontSize:11},
+  font:{fontSize:14,fontWeight:'bold'},
   color: '#fff'
 });
 daypicker.selectionIndicator = true;
@@ -105,7 +107,7 @@ var lbluitleg = Ti.UI.createLabel({
   width: "30%",
   height: 40,
   left: 5,
-  font:{fontSize:11},
+  font:{fontSize:16,fontWeight:'bold'},
   color: '#fff',
   textAlign: 'left'
 });
@@ -115,7 +117,7 @@ var txtuitleg= Ti.UI.createTextArea({
   left: 5,
   width: "90%",
   height: 60,
-  font:{fontSize:11},
+  font:{fontSize:16,fontWeight:'bold'},
   color: '#000',
   textAlign: 'left'
 });
@@ -126,7 +128,7 @@ var lblSwitchTaskImportant = Ti.UI.createLabel({
   width: "auto",
   height: "auto",
   left: 5,
-  font:{fontSize:11},
+  font:{fontSize:16,fontWeight:'bold'},
   color: '#fff',
   textAlign: 'left'
 });
@@ -146,7 +148,7 @@ var btnAdd = Ti.UI.createButton({
 });
 
 var peoplePicker = Titanium.UI.createPicker({
-  top: 50,
+  top: 60,
   left: 100,
   width: "50%",
   height: 40,
@@ -169,8 +171,7 @@ peopleReq.send();
 peopleReq.onload = function()  
 {  
     var json = this.responseText; 
-    var response = JSON.parse(json); 
-    //alert(json);
+    var response = JSON.parse(json);
     if (response.status == true)  
     {
 		for(var i = 1; i < response.content.length+1; i++)
@@ -195,7 +196,7 @@ peopleReq.onerror = function()
 };
 
 /* ===================
- * save and sens
+ * save and send
  * =================== */
 
 // event listeners pickers
@@ -249,7 +250,7 @@ btnAdd.addEventListener('click', function(e){
 	} 
 	else 
 	{
-		alert("http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId="+projectId+"&taskName="+addTaskName+"&taskDeadline="+addTaskDeadlineYear+"-"+addTaskDeadlineMonth+"-"+addTaskDeadlineDay+"&personId="+addTaskPersonId+"&taskContent="+addTaskContent+"&taskImportant="+addTaskImportant); 
+		//alert("http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId="+projectId+"&taskName="+addTaskName+"&taskDeadline="+addTaskDeadlineYear+"-"+addTaskDeadlineMonth+"-"+addTaskDeadlineDay+"&personId="+addTaskPersonId+"&taskContent="+addTaskContent+"&taskImportant="+addTaskImportant); 
 		/* ============================
 		 * Call to save task
 		 * ============================*/
@@ -270,15 +271,16 @@ btnAdd.addEventListener('click', function(e){
 		    {  
 		        alert("Task was not saved.");  
 		    }
-			
 		};
-	
 		overviewReq.onerror = function()  
 		{ 
 			alert("Could not connect to server."); 
 		};
 	}
-	
+	txttaskname.value="";
+	peoplePicker.setSelectedRow(0,0,true);
+	daypicker.setSelectedRow(0,0,true);
+	monthpicker.setSelectedRow(0,0,true);
 });
 
 Titanium.UI.currentWindow.add(lbltaskname);

@@ -28,9 +28,10 @@ var label1 = Ti.UI.createLabel({
   top: 20,
   width: "80%",
   height: 32,
-  left: "10%",
+  left: "20%",
   color: '#fff',
   textAlign: 'center',
+  font:{fontSize:20,fontWeight:'bold'},
 });
 
 
@@ -45,7 +46,9 @@ var table = Ti.UI.createTableView({
 
 table.addEventListener("click", function(e) {
 	
-var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
+var tabGroup = Titanium.UI.createTabGroup({
+	id:'tabGroup1',
+  });
 
   var winBack = Titanium.UI.createWindow({  
     url:'back.js',
@@ -94,18 +97,36 @@ var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
 
 });
 
-
-var btnloguit = Ti.UI.createButton({
-  title:"log uit",
-  top: 20,
-  width: 70,
-  height: 32,
-  left: 3,
-});
-
+if (isAndroid) 
+{
+	var btnloguit = Ti.UI.createButton({
+	  title:"log uit",
+	  borderWidth: 2,
+	  borderRadius: 10,
+	  borderColor: '#097ab5',
+	  backgroundColor: '#011723',
+	  color: '#fff',
+	  top: 20,
+	  width: 70,
+	  height: 32,
+	  left: 3,
+	});
+}
+else
+{
+	var btnloguit = Ti.UI.createButton({
+	  title:"log uit",
+	  borderWidth: 2,
+	  borderRadius: 10,
+	  borderColor: '#097ab5',
+	  top: 20,
+	  width: 70,
+	  height: 32,
+	  left: 3,
+	});
+}
 btnloguit.addEventListener('click', function(e){
-  var winLogin = Titanium.UI.createWindow({  
-    backgroundColor:'#000',
+  var winLogin = Titanium.UI.createWindow({ 
     url:'login.js'
   });
   winLogin.open();
@@ -144,21 +165,21 @@ overviewReq.onload = function()
 					row.setBackgroundColor('#011723');
 				}
 				var name =  Titanium.UI.createLabel({
-				text:response.content[i].name,
-				font:{fontSize:16,fontWeight:'bold'},
-				width:'auto',
-				textAlign:'left',
-				top:13,
-				left:10,
-				height:'auto',
-				color:"#fff"
+					text:response.content[i].name,
+					font:{fontSize:16,fontWeight:'bold'},
+					width:'auto',
+					textAlign:'left',
+					top:13,
+					left:10,
+					height:'auto',
+					color:"#fff"
 				});
 				var arrow =  Titanium.UI.createImageView({
-				url:"app://images/arrow_right.png",
-				width:30,
-				height:30,
-				right:4,
-				top:10
+					url:"app://images/arrow_right.png",
+					width:30,
+					height:30,
+					right:4,
+					top:10
 				});
 				row.add(arrow);
 				row.add(name);
