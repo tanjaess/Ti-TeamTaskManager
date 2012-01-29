@@ -17,7 +17,7 @@ if (Ti.Platform.name == 'android') {
  * Data from overview.js as currentWindow
  * ======================================= */
 
-var id = Titanium.UI.currentWindow.id;
+var projectId = Titanium.UI.currentWindow.id;
 
 /* ============================
  * Content of the window
@@ -53,7 +53,7 @@ var tabGroup = Titanium.UI.createTabGroup({
   var winBack = Titanium.UI.createWindow({  
     url:'back.js',
     backgroundColor:'000',
-    id: id,
+    projectId: projectId,
   });
 
   var winProject = Titanium.UI.createWindow({  
@@ -137,7 +137,7 @@ btnloguit.addEventListener('click', function(e){
  * ============================ */
 
 var overviewReq = Titanium.Network.createHTTPClient();  
-overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/overview.php?id='+id); 
+overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/overview.php?id='+projectId); 
 overviewReq.send();
 
 overviewReq.onload = function()  
