@@ -2,8 +2,7 @@ var win=Titanium.UI.currentWindow;
 win.setBackgroundColor('#000');
 win.setBackgroundImage('images/headReverse.png');
 
-//var projectId= win.projectId;
-var projectId= 1;
+var projectId= win.projectId;
 
 /* ======================
  * isAndroid?
@@ -41,10 +40,11 @@ var txttaskname= Ti.UI.createTextField({
   backgroundColor: "#fff",
   color: "#000"
 });
+
 if(isAndroid)
 {
 	txttaskname.setHeight("auto");
-}
+};
 
 var lblpersoon = Ti.UI.createLabel({
   text:'Person:',
@@ -366,7 +366,7 @@ btnAdd.addEventListener('click', function(e){
 		    {  
 		    	alert("Task was saved."); 
 		    	txttaskname.value="";
-		    	if(isAndoid)
+		    	if(isAndroid)
 		    	{
 					peoplePicker.setSelectedRow(0,0,true);
 					daypicker.setSelectedRow(0,0,true);

@@ -6,13 +6,11 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.077170 seconds on emulator to get ready
+[DEBUG] waited 0.019302 seconds on emulator to get ready
 [DEBUG] com.teamtaskmanager.ti installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[TRACE] COPYING CREATED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/images/list-30.png => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/images/list-30.png
-[TRACE] COPYING CREATED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/images/plus-round-30.png => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/images/plus-round-30.png
-[TRACE] COPYING MODIFIED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/overview.js => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/overview.js
+[TRACE] COPYING MODIFIED FILE: /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/project.js => /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/build/android/bin/assets/Resources/project.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/Tanja/Documents/school/3IM/MobileDev/Ti-TeamTaskManager/Resources/android/images/res-long-land-hdpi/default.png
