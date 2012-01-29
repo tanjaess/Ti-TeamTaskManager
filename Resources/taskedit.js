@@ -1,5 +1,16 @@
 var win=Titanium.UI.currentWindow;
 win.setBackgroundColor('#000');
+win.setBackgroundImage('images/headReverse.png');
+
+/* ======================
+ * isAndroid?
+ * ====================== */
+
+var isAndroid = false;
+
+if (Ti.Platform.name == 'android') {
+	isAndroid = true;
+}
 
 /* =======================================
  * Data from project.js as currentWindow
@@ -46,7 +57,7 @@ var txttaskname= Ti.UI.createTextField({
 
 var lbldeadline = Ti.UI.createLabel({
   text:'Deadline',
-  top: 100,
+  top: 50,
   width: "30%",
   height: 40,
   left: 5,
@@ -56,7 +67,7 @@ var lbldeadline = Ti.UI.createLabel({
 });
 
 var daypicker = Titanium.UI.createPicker({
-  top: 140,
+  top: 90,
   width: "25%",
   left: 5,
   font:{fontSize:11},
@@ -74,7 +85,7 @@ daypicker.add(dataday);
 daypicker.setSelectedRow(0,deadline[2],false);
 
 var monthpicker = Titanium.UI.createPicker({
-  top: 140,
+  top: 90,
   width: "25%",
   left: 80,
   font:{fontSize:11},
@@ -91,7 +102,7 @@ monthpicker.add(datamonth);
 monthpicker.setSelectedRow(0,deadline[1],false);
 
 var yearpicker = Titanium.UI.createPicker({
-  top: 140,
+  top: 90,
   width: "33%",
   left: 152,
   font:{fontSize:11},
@@ -107,32 +118,31 @@ for(var i=0; i<6; i++)
 yearpicker.add(datayear);
 switch(deadline[0])
 {
-case "2011":
-	yearpicker.setSelectedRow(0,0,false);
-  	break;
-case "2012":
-  yearpicker.setSelectedRow(0,1,false);
-  break;
-case "2013":
-  yearpicker.setSelectedRow(0,2,false);
-  break;
-case "2014":
-  yearpicker.setSelectedRow(0,3,false);
-  break;
-case "2014":
-  yearpicker.setSelectedRow(0,4,false);
-  break;
-case "2015":
-  yearpicker.setSelectedRow(0,6,false);
-  break;
-default:
-  yearpicker.setSelectedRow(0,0,false);
-}
-
+	case "2011":
+		yearpicker.setSelectedRow(0,0,false);
+	  	break;
+	case "2012":
+	  yearpicker.setSelectedRow(0,1,false);
+	  break;
+	case "2013":
+	  yearpicker.setSelectedRow(0,2,false);
+	  break;
+	case "2014":
+	  yearpicker.setSelectedRow(0,3,false);
+	  break;
+	case "2014":
+	  yearpicker.setSelectedRow(0,4,false);
+	  break;
+	case "2015":
+	  yearpicker.setSelectedRow(0,6,false);
+	  break;
+	default:
+	  yearpicker.setSelectedRow(0,0,false);
+};
 
 var lbluitleg = Ti.UI.createLabel({
   text:'Task:',
-  top: 190,
+  top: 130,
   width: "30%",
   height: 40,
   left: 5,
@@ -142,8 +152,8 @@ var lbluitleg = Ti.UI.createLabel({
 });
 
 var txtuitleg= Ti.UI.createTextArea({
-	value: taskContent,
-  top: 240,
+  value: taskContent,
+  top: 170,
   left: 5,
   width: "90%",
   height: 60,
@@ -154,7 +164,7 @@ var txtuitleg= Ti.UI.createTextArea({
 
 var lblSwitchTaskImportant = Ti.UI.createLabel({
   text:'Is the task important?:',
-  top: 310,
+  top: 230,
   width: "auto",
   height: "auto",
   left: 5,
@@ -164,32 +174,52 @@ var lblSwitchTaskImportant = Ti.UI.createLabel({
 });
 
 var switchTaskImportant = Titanium.UI.createSwitch({
-    top: 310, 
+    top: 230, 
     right: 5,
 });
+
 if(taskImportant==1)
+{
 	switchTaskImportant.value=true;
-else
+} else
+{
 	switchTaskImportant.value=false;
+};
 
 var btnUpdate = Ti.UI.createButton({
+  font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},  
   title:"Add",
   bottom: 5,
   width: 50,
-  height: 32,
-  right: 3
+  height: 40,
+  right: 3,
+  color: "#fff"
 });
-
 var btnBack = Ti.UI.createButton({
+  font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},  
   title:"Back",
   bottom: 5,
-  width: "auto",
-  height: "auto",
-  left: 3
+  width: 50,
+  height: 40,
+  left: 3,
+  color: "#fff"
 });
 
+if (isAndroid) {
+	btnBack.setBackgroundColor("#011723");
+	btnBack.setBackgroundFocusedColor("#011723");
+	btnBack.setBorderRadius(10);
+	btnUpdate.setBackgroundColor('#011723');
+	btnUpdate.setBackgroundFocusedColor('#011723');
+	btnUpdate.setBorderRadius(10);
+} else
+{
+	btnUpdate.setColor("NONE");
+	btnBack.setColor("NONE");
+}
+
 /* ===================
- * save and sens
+ * save and send
  * =================== */
 
 // event listeners pickers
@@ -261,7 +291,7 @@ btnUpdate.addEventListener('click', function(e){
 });
 
 btnBack.addEventListener('click', function(e){
-	Titanium.UI.currentWindow.close();
+	win.close();
 });
 	
 Titanium.UI.currentWindow.add(lbltaskname);

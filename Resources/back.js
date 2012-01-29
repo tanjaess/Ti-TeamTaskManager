@@ -11,5 +11,6 @@ var winOverview = Titanium.UI.createWindow({
   backgroundColor:'000',
   url:'overview.js',
   id: userId,
+  tabBarVisible:false,
 });
 winOverview.open();

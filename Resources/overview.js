@@ -72,19 +72,22 @@ var tabGroup = Titanium.UI.createTabGroup({
 
   var tab1 = Titanium.UI.createTab({
 	id:'tab1',
-	title:'Project',
+	title:'Tasks',
+	icon: 'images/list-30.png',
 	window:winProject
   });
 
   var tab2 = Titanium.UI.createTab({
 	id:'tab2',
 	title:'Add task',
+	icon: 'images/plus-round-30.png',
 	window:winAddProject
   });
   
   var tab3 = Titanium.UI.createTab({
 	id:'tab3',
-	title:'Overview',
+	title:'Projects',
+	icon: 'images/arrow_left.png',
 	window:winBack
   });
 

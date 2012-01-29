@@ -1,9 +1,13 @@
-Welcome to your Appcelerator Titanium Mobile Project
+Welcome to the Team Task Manager application
 
-This is a blank project.  Start by editing your application's app.js to 
-make your first mobile project using Titanium.
+With this application you can manage tasks in a team whenever and wherever you are. 
+The registration of projects and accounts can be done using the team task manager website.
 
+With this app you can view and manage projects that were made online. You can add new tasks,
+report a problem or edit existing tasks. A task must be given to a person that participates
+in that project. 
 
+Everyone that participates in a project can add a task, edit a task or report a problem.
 
 ----------------------------------
 Stuff our legal folk make us say:
