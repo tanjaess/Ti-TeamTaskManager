@@ -3,7 +3,7 @@ Titanium.UI.setBackgroundColor('#000');
 
 var winLogin = Titanium.UI.createWindow({  
     backgroundColor:'000',
-    url:'login.js'
+    url: 'login.js'
 });
 
 winLogin.open();

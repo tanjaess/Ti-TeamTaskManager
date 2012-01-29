@@ -38,6 +38,7 @@ var txtUsername = Ti.UI.createTextField({
   textAlign: 'left',
   hintText : 'username',
   backgroundColor: '#fff',
+  borderRadius: 10,
   borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
   keyboardType:Titanium.UI.KEYBOARD_DEFAULT,  
   returnKeyType:Titanium.UI.RETURNKEY_DEFAULT
@@ -62,6 +63,7 @@ var txtPassword = Ti.UI.createTextField({
   	textAlign: 'left',
   	backgroundColor: '#fff',
   	passwordMask: true,
+  	borderRadius: 10,
   	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
   	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,  
     returnKeyType:Titanium.UI.RETURNKEY_DEFAULT
