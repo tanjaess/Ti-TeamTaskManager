@@ -355,7 +355,13 @@ btnAdd.addEventListener('click', function(e){
 		 * ============================*/
 		
 		var overviewReq = Titanium.Network.createHTTPClient();  
-		overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
+		if(isAndroid)
+			overviewReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
+		else
+		{
+			overviewReq.open('POST','http://esselenstanja2011.dreamhosters.com/mobiele/addTask.php?projectId='+projectId+'&taskName='+addTaskName+'&taskDeadline='+addTaskDeadlineYear+'-'+addTaskDeadlineMonth+'-'+addTaskDeadlineDay+'&personId='+addTaskPersonId+'&taskContent='+addTaskContent+'&taskImportant='+addTaskImportant); 
+			overviewReq.setRequestHeader('content-type','application/json');
+		}
 		overviewReq.send();
 		
 		overviewReq.onload = function()  
@@ -372,7 +378,10 @@ btnAdd.addEventListener('click', function(e){
 					daypicker.setSelectedRow(0,0,true);
 					monthpicker.setSelectedRow(0,0,true);
 					yearpicker.setSelectedRow(0,0,true);
-				};
+				}else{
+					txtPerson.value="";
+					txtDate.value="";
+				}
 				txtuitleg.value="";
 				switchTaskImportant=false;
 		    }  

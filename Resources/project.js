@@ -226,11 +226,10 @@ table.addEventListener("click", function(e) {
  /* ==========================
   * call to db for tasks
   * ========================== */
-var myDatabase = Ti.Database.open('myDatabase');
 var tasksReq = Titanium.Network.createHTTPClient();  
 tasksReq.open('GET','http://esselenstanja2011.dreamhosters.com/mobiele/tasks.php?id='+projectId); 
 tasksReq.send();
-
+var myDatabase = Ti.Database.open('myDatabase');
 tasksReq.onload = function()  
 {  
     var json = this.responseText; 
@@ -238,6 +237,7 @@ tasksReq.onload = function()
     if (response.status == true)  
     {  
     	//var rows = [];
+    	myDatabase = Ti.Database.open('myDatabase');
     	myDatabase.execute('DROP TABLE IF EXISTS taken');
 		var sql = 'CREATE TABLE IF NOT EXISTS taken('+'taakId INT, persoonId INT, taakBelangrijk INT, taakNaam TEXT, taakPersoon TEXT, taakUitleg TEXT, taakDeadline TEXT, taakProbleem TEXT'+')';
 		myDatabase.execute(sql);
