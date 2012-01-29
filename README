@@ -1,7 +1,18 @@
 README
 
+Welcome to the Team Task Manager application
+
+With this application you can manage tasks in a team whenever and wherever you are. 
+The registration of projects and accounts can be done using the team task manager website.
+
+With this app you can view and manage projects that were made online. You can add new tasks,
+report a problem or edit existing tasks. A task must be given to a person that participates
+in that project. 
+
+Everyone that participates in a project can add a task, edit a task or report a problem.
+
 ================== 
-inloggen kan via
+To log in
 ==================
 username: Lindsay - password: lindsay
 username: Paul - password: paul
@@ -12,18 +23,17 @@ username: Kim - password: kim
 webservice
 ==================
 
-Er wordt connectie gelegd naar php scripts dewelke op dreamhoster staan.
-Ze zijn bijgevoegd in de map "databank" in de zipfile.
-Daarin zijn eveneen de db afbeeldingen te zien.
+Connection to webservice is to php-script hosted on my dreamhosters account.
+See "databank"-folder for the scripts and an images of the db-layout in the zip file send by email.
 
 ================== 
 de app
 ==================
 
-De app werkt op Iphone en Android. 
-Editen van taken en een probleem rapporteren enkel op Android.
-Taken toevoegen kan op Iphone maar iphone zet daar zo'n vieze 20% tekens bij... 
-Er wordt een databank aangemaakt voor in de app waarmee dan het sorteren wordt gedaan. 
+The app works on Iphone and Android. 
+Task edit and report problem on Android only.
+Add task on iphone resluts in "20%" being added where there are spaces.
+The sorting happens with the help of a local database.
 
 ================== 
 de app flow

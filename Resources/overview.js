@@ -4,7 +4,7 @@ win.title="Team Task Manager";
 win.setBackgroundImage('images/headReverse.png');
 
 /* =======================================
- * isAndroid?
+ * is Android?
  * ======================================= */
 
 var isAndroid = false;
