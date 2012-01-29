@@ -194,6 +194,7 @@ overviewReq.onload = function()
 			rows.push(row);
 		};
 		table.setData(rows);
+	
     }  
     else  
     {  

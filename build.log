@@ -28,3 +28,4 @@ Logfile initialized
 [INFO] Launching application ... Ti-TeamTaskManager
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.teamtaskmanager.ti/.TiTeamtaskmanagerActivity }
 
+[INFO] Android Emulator has exited

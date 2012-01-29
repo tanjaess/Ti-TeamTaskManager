@@ -76,7 +76,7 @@ var lblUitleg = Ti.UI.createLabel({
 
 var lblProblem = Ti.UI.createLabel({
   text: "Task problem: "+taskProblem,
-  top: 180,
+  top: 200,
   width: "80%",
   left: 5,
   fontSize:11,
