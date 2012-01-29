@@ -1,5 +1,6 @@
-Titanium.UI.currentWindow.setBackgroundColor('#000');
-
+win=Titanium.UI.currentWindow;
+win.setBackgroundColor('NONE');
+win.setBackgroundImage('images/headReverse.png');
 /* =======================================
  * Data from overview.js as currentWindow
  * ======================================= */
@@ -17,7 +18,7 @@ var imgImportant = Titanium.UI.createImageView({
   		right: 40,
   		height: 20,
   		width: 20,
-  		image:"/images/uitroepteken.png"
+  		image:"images/bolt.png"
   	});
 /*
 var datarows =[];
@@ -171,8 +172,6 @@ tasksReq.onload = function()
   			{
   				row.add(imgImportant)
   			};
-  			
-  			//row.hasChild=row[i].hasChild;
 			rows.push(row);
 		}
 		table.setData(rows);
@@ -182,7 +181,6 @@ tasksReq.onload = function()
         alert("response.content");  
     }
 };
-
 tasksReq.onerror = function()  
 { 
 	alert("Could not connect to server."); 
